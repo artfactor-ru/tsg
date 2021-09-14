@@ -1,0 +1,193 @@
+@mixin laptop {
+    @media(max-width: 1480px) {
+        @content;
+    }
+}
+
+@mixin tablets {
+    @media(max-width: 1180px) {
+        @content;
+    }
+}
+
+
+@mixin mobile {
+    @media(max-width: 767px) {
+        @content;
+    }
+}
+
+
+
+
+
+
+@mixin btn-destroy {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    // box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+}
+
+@mixin input-destroy {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+// Удаляем стили списка
+@mixin list-destroy {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    // font-style: inherit;
+    // font-size: inherit;
+    // font-family: inherit;
+}
+
+@mixin h1-style{
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 68px;
+    /* or 68px */
+
+    text-transform: uppercase;
+    @include laptop {
+        font-size: 46px;
+        line-height: 48px;
+    }
+    @include tablets {
+        font-size: 38px;
+        line-height: 43px;
+    }
+    @include mobile {
+        font-size: 22px;
+        line-height: 28px;
+    }
+}
+
+@mixin h2-style {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 49px;
+    @include laptop {
+        font-size: 36px;
+        line-height: 53px;
+    }
+    @include tablets {
+        font-size: 32px;
+        line-height: 43px;
+    }
+    @include mobile {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+
+@mixin p-style {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    @include laptop {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    @include tablets {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    @include mobile {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+@mixin block-title {
+    margin-bottom: 75px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include laptop {
+        margin-bottom: 50px;
+    }
+    @include tablets {
+        margin-bottom: 40px;
+    }
+    @include mobile {
+        margin-bottom: 30px;
+    }
+
+    &::after{
+        content: "";
+        // position: absolute;
+        // top: 50%;
+        // right: 0;
+        width: 130px;
+        height: 1px;
+        margin-left: 35px;
+        background: $color-red;
+        position: relative;
+        transform: scaleX(2.2) translateX(100px);
+        transition: $transition;
+        @include mobile{
+            display: none;
+        }
+        
+    }
+    &::before{
+        content: "";
+        // position: absolute;
+        // top: 50%;
+        // left: 0;
+        width: 130px;
+        height: 1px;
+        margin-right: 35px;
+        background: $color-red;
+        position: relative;
+        transform: scaleX(2.2) translateX(-100px);
+        transition: $transition;
+        @include mobile{
+            display: none;
+        }
+    }   
+   
+}
+.anitrigger::after{
+    transform: scaleX(1) translateX(0px) !important;
+}
+.anitrigger::before{
+    transform: scaleX(1) translateX(0px) !important;
+}
+@mixin block-style {
+    padding: 50px 0px;
+    @include laptop {
+        padding: 50px 0px;
+    }
+    @include tablets {
+        padding: 40px 0px;
+    }
+    @include mobile {
+        padding: 40px 0px;
+    }
+    & h2 {
+        @include block-title;
+    }
+}
+

@@ -1,0 +1,134 @@
+.hero{
+    
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: 675px;
+    background-size: 50%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    @include tablets{
+        background-position: center 75%;
+        // background-size: contain;
+    }
+    @include mobile{
+        background-size: contain;
+        background-position: center 85%;
+        max-height: 575px;
+    }
+    &>.container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+        @include tablets{
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+    & h1{
+        @include tablets{
+            text-align: center;
+            margin-top: 40px;
+        }
+    }
+    &__subtitle{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 41px;
+        @include laptop{
+           
+            font-size: 28px;
+             line-height: 30px;
+        }
+        @include tablets{
+            font-size: 24px;
+            line-height: 30px;
+            align-items: center;
+        }
+        @include mobile{
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+   
+}
+
+.block__row{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.block__column{
+    width: 40%;
+    @include tablets{
+        width: 45%;
+    }
+    @include mobile{
+        width: 100%;
+        
+    }
+}
+.block__column--img{
+    @include mobile{
+        text-align: center;
+    }
+}
+.block__column--img img{
+    width: 100%;
+}
+.block__column:first-child{
+    margin-bottom: 20px;
+}
+
+.video-play{
+    display: inline-block;
+    position: relative;
+   
+}
+.video-play::before{
+    content: "";
+    position: absolute;
+    background-image: url(../img/play.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75px;
+    width: 75px;
+    height:75px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include mobile{
+        width: 45px;
+        height: 45px;
+        background-size: 45px;
+    }
+
+}
+
+.certificate{
+    display: flex;
+    @include mobile{
+        justify-content: space-between;
+    }
+    // justify-content: space-evenly;
+}
+.certificate__item{
+    margin-right: 60px;
+    @include mobile{
+        margin-right: 0;
+        width: 48%;
+   
+    }
+}
+
+.partners{
+    text-align: center;
+    @include mobile{
+        width: 50%;
+        margin: 0 !important;
+    }
+}

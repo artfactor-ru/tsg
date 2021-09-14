@@ -1,0 +1,187 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    font-family: $font-main;
+    color: #000000;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+a {
+    // color: inherit;
+    text-decoration: none;
+    transition: $transition-speed;
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 1480px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    position: relative;
+    margin: 0 auto;
+    @include laptop {
+        padding: 0px 45px;
+    }
+    @include tablets{
+        padding: 0px 40px;
+    }
+    @include mobile{
+        padding:  0px 20px;
+    }
+  
+  
+}
+
+h1 {
+    @include h1-style;
+}
+
+h2 {
+    @include h2-style;
+}
+
+p {
+    @include p-style;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+ul{
+    @include p-style;
+    list-style-type: "-";
+    padding-left: 10px;
+  
+    & li{
+        padding-left: 10px;
+    }
+}
+a:hover{
+    color: $color-red !important;
+}
+.animated {
+    display: block;
+}
+
+.simplefade {
+	backface-visibility: visible!important;
+}
+
+.anitrigger.simplefade {
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+	animation-name: flipInX
+}
+
+
+
+
+@keyframes flipInX {
+	0% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		transform: perspective(400px) rotateX(90deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+		opacity: 0
+	}
+	40% {
+		-webkit-transform: perspective(400px) rotateX(-20deg);
+		transform: perspective(400px) rotateX(-20deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in
+	}
+	60% {
+		-webkit-transform: perspective(400px) rotateX(10deg);
+		transform: perspective(400px) rotateX(10deg);
+		opacity: 1
+	}
+	// 80% {
+	// 	-webkit-transform: perspective(400px) rotateX(-5deg);
+	// 	transform: perspective(400px) rotateX(-5deg)
+	// }
+	to {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px)
+	}
+}
+
+
+.block-dark {
+    background: $color-grey;
+    @include block-style;
+}
+
+.block-light {
+    @include block-style;
+    background: #fff;
+}
+
+
+
+
+.btn-flip-down {
+    margin-top: 40px;
+    --flip-button-height: 50px;
+    height: 55px;
+    width: 260px;
+    color: transparent;
+    border: none;
+    border-radius: 0;
+    perspective: 600px;
+    transition: 0.3s;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFFFF;
+  }
+  .btn-flip-down:hover {
+    color: transparent;
+    background: transparent;
+  }
+  .btn-flip-down .front,
+  .btn-flip-down .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-flip-down .front {
+    background: #CC1C1C;
+    color: white;
+    transition: 0.3s;
+    transform-origin: center center calc(var(--flip-button-height) / -2);
+    
+  }
+  .btn-flip-down .back {
+    color: white;
+    background:#CC1C1C;
+    transform: rotateX(88deg);
+    transform-origin: center center calc(var(--flip-button-height) / -2);
+    transition: 0.3s;
+    @include mobile{
+        display: none;
+    }
+  }
+  .btn-flip-down:hover .front {
+    transform: rotateX(-90deg);
+  }
+  .btn-flip-down:hover .back {
+    transform: rotateX(0deg);
+  }

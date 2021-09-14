@@ -1,0 +1,36 @@
+.footer{
+    background-color: $color-grey;
+    padding: 30px 0px 40px;
+    &>.container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+.made{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #000000;
+    width: 100%;
+    text-align: right;
+    & a{
+        color: inherit;
+    }
+    @include tablets{
+        font-size: 14px;
+    }
+    @include mobile{
+        width: auto;
+    }
+}
+
+.footer nav{
+    @include mobile{
+        display: none;
+    }
+}
